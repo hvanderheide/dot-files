@@ -24,6 +24,8 @@ if dein#load_state('$HOME/.vim/dein')
   call dein#add('airblade/vim-gitgutter')
   call dein#add('tpope/vim-unimpaired')
   call dein#add('scrooloose/nerdtree')
+  call dein#add('junegunn/goyo.vim')
+  call dein#add('junegunn/limelight.vim')
 
   " Required:
   call dein#end()
@@ -41,6 +43,12 @@ let g:airline#extensions#tabline#enabled = 1
 
 colorscheme gruvbox
 set background=dark
+let g:limelight_conceal_ctermfg = 'gray'
+let g:limelight_conceal_ctermfg = 240
+
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
+nmap <Leader>g :Goyo<CR>
 
 set cursorline
 set number
