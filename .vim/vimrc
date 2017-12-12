@@ -28,6 +28,8 @@ if dein#load_state('$HOME/.vim/dein')
   call dein#add('junegunn/limelight.vim')
   call dein#add('yegappan/grep')
   call dein#add('plasticboy/vim-markdown')
+  call dein#add('dhruvasagar/vim-table-mode')
+  call dein#add('neomake/neomake')
 
   " Required:
   call dein#end()
@@ -67,3 +69,6 @@ nmap <Leader>t :TlistToggle<CR>
 
 au BufRead,BufNewFile *.{txt} set filetype=markdown
 let g:vim_markdown_folding_disabled = 1
+
+" Load additional project-specific configuration
+silent! source .vimlocal
