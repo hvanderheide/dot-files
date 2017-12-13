@@ -1,0 +1,47 @@
+# Settings
+set delete = yes # Delete without ask
+set pager_index_lines = 20 # Message pane in pager
+set forward_format = "Fwd: %s"
+source ~/.mutt/vombatidae.mutt
+source ~/.mutt/vim-keys.rc
+#set header_cache = "~/.mutt/cache" # Caches headers in a DB which speeds up loading lots of mails
+macro index,pager \cb "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+macro attach,compose \cb "<pipe-entry> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+set wrap = 100 # Wrap mail in pager
+set timeout = 60 # Block at most 60 seconds before pausing to do maintencance
+set mime_forward = ask-no # Forward MIME messages as attachment
+mime_lookup application/octet-stream application/vnd.ms-excel
+unset wait_key
+macro index,pager S "<shell-escape>mbsync -q quick<enter>" "sync mail"
+alternative_order text/plain text/html # this helps with multipart messages
+#set mime_forward=yes
+#set mime_forward_rest=yes
+
+set implicit_autoview
+auto_view text/html  application/x-pgp-message
+ignore *
+unignore from date subject to cc
+unignore x-mailer
+unignore x-spam-status
+unignore x-spam-report
+set edit_headers
+
+# Threaded mode
+set sort = threads
+set sort_aux = last-date-received
+set ascii_chars
+
+# Open folder list when saving or changing
+macro index,pager c "<change-folder>?" "open a different folder"
+macro index,pager s "<save-message>?<toggle-mailboxes>" "save to a folder"
+
+# notmuch
+#set nm_default_uri = "notmuch:///Users/hidde/Mail"
+#macro index \\\\ "<vfolder-from-query>"              # looks up a hand made query
+
+# abook
+#set query_command = "abook --mutt-query '%s'"
+#macro index a "|abook --add-email\n" 'add sender to abook'
+#macro pager a "|abook --add-email\n" 'add sender to abook'
+
+source ~/.mutt/accounts/accounts.muttrc # Load private accounts config

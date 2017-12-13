@@ -1,0 +1,3 @@
+macro index,pager <f2> "<change-folder>~/Mail/example<enter>" "go to example"
+folder-hook ~/Mail/example source ~/.mutt/accounts/example.muttrc
+source ~/.mutt/accounts/example.muttrc # Default account

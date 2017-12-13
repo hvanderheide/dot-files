@@ -1,0 +1,15 @@
+set from = "john@example.com"
+set folder = "~/Mail/example"
+set smtp_url = "smtp://john@smtp.example.com"
+set mbox_type = Maildir
+
+set spoolfile = "+"
+set mbox      = "+.Archive"
+set record    = "+.Sent"
+set postponed = "+.Drafts"
+set trash     = "+.Trash"
+
+unmailboxes *
+mailboxes + `find ~/Mail/example -maxdepth 5 -type d -name ".*" | awk '{last=split($0,a,"/"); printf "+" a[last] " "}'`
+
+set signature="~/.mutt/accounts/example.signature"
