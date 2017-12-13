@@ -1,0 +1,31 @@
+# Global configuration section
+Expunge Both # Only mark deleted for now
+Create Both # Automatically create missing mailboxes both local and remote
+
+MaildirStore localExample
+Inbox ~/Mail/example
+SubFolders Maildir++
+
+IMAPStore example
+Host mail.example.com
+SSLType IMAPS
+User john@example.com
+# Pass "testtest"
+PassCmd "security find-generic-password -s mail.example.com -w" # Use Mac keychain
+CertificateFile ~/Mail/.certs/mail.example.com.pem
+
+Channel exampleAll
+Master :example:
+Slave :localExample:
+Patterns "INBOX" "Archive*" "Drafts" "Sent" "Trash" "Hold"
+
+Channel exampleQuick
+Master :example:
+Slave :localExample:
+Patterns "INBOX"
+
+Group all
+Channels nexuzAll
+
+Group quick
+Channels nexuzQuick
