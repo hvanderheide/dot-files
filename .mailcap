@@ -1,4 +1,4 @@
-#text/html; open %s
 text/html; lynx -dump -force_html  %s;  needsterminal; copiousoutput
 application/*; ~/.mutt/bin/view_attachment.sh %s
 image/*; ~/.mutt/bin/view_attachment.sh %s
+audio/*; ~/.mutt/bin/view_attachment.sh %s
