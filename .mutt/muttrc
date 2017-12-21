@@ -26,6 +26,8 @@ unignore x-spam-status
 unignore x-spam-report
 set edit_headers
 
+source ~/.mutt/gpg.rc
+
 # Threaded mode
 set sort = threads
 set sort_aux = last-date-received
@@ -36,8 +38,8 @@ macro index,pager c "<change-folder>?" "open a different folder"
 macro index,pager s "<save-message>?<toggle-mailboxes>" "save to a folder"
 
 # notmuch
-#set nm_default_uri = "notmuch:///Users/hidde/Mail"
-#macro index \\\\ "<vfolder-from-query>"              # looks up a hand made query
+set nm_default_uri = "notmuch:///Users/hidde/Mail"
+macro index \\\\ "<vfolder-from-query>"              # looks up a hand made query
 
 # abook
 #set query_command = "abook --mutt-query '%s'"
