@@ -15,6 +15,7 @@ if dein#load_state('$HOME/.vim/dein')
   call dein#add('$HOME/.vim/dein/repos/github.com/Shougo/dein.vim')
 
   " Add or remove your plugins here:
+  call dein#add('tpope/vim-sensible')
   call dein#add('vim-airline/vim-airline')
   call dein#add('vim-airline/vim-airline-themes')
   call dein#add('morhetz/gruvbox')
@@ -60,10 +61,8 @@ set colorcolumn=80
 set showcmd " Show active command (like pressed leader)
 let mapleader=" "
 set hidden " hide buffers which allows opening/changing buffers without writing first
-set hlsearch
-set incsearch
+nmap <Leader>m :make<CR>
 
-nmap <silent> <Leader>/ :nohlsearch<CR>
 nmap <Leader>n :NERDTreeToggle<CR>
 nmap <Leader>t :TlistToggle<CR>
 
