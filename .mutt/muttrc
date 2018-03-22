@@ -5,8 +5,8 @@ set forward_format = "Fwd: %s"
 source ~/.mutt/vombatidae.mutt
 source ~/.mutt/vim-keys.rc
 #set header_cache = "~/.mutt/cache" # Caches headers in a DB which speeds up loading lots of mails
-macro index,pager \cb "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
-macro attach,compose \cb "<pipe-entry> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+macro index,pager \cb "<pipe-message> urlscan -d<Enter>" "call urlscan to extract URLs out of a message"
+#macro attach,compose \cb "<pipe-entry> urlscan<Enter>" "call urlscan to extract URLs out of a message"
 set wrap = 100 # Wrap mail in pager
 set timeout = 60 # Block at most 60 seconds before pausing to do maintencance
 set mime_forward = ask-no # Forward MIME messages as attachment
@@ -27,6 +27,11 @@ unignore x-spam-report
 set edit_headers
 
 source ~/.mutt/gpg.rc
+set crypt_autosign
+set crypt_replyencrypt
+set crypt_replysignencrypted
+set crypt_verify_sig
+set pgp_use_gpg_agent
 
 # Threaded mode
 set sort = threads
