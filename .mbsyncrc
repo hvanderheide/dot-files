@@ -25,7 +25,7 @@ Slave :localExample:
 Patterns "INBOX"
 
 Group all
-Channels nexuzAll
+Channels exampleAll
 
 Group quick
-Channels nexuzQuick
+Channels exampleQuick
