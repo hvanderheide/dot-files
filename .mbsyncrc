@@ -11,7 +11,8 @@ Host mail.example.com
 SSLType IMAPS
 User john@example.com
 # Pass "testtest"
-PassCmd "security find-generic-password -s mail.example.com -w" # Use Mac keychain
+# PassCmd "security find-generic-password -s mail.example.com -w" # Use Mac keychain
+PassCmd "secret-tool lookup mail-server webmail.nexuz.net" # Use libsecret
 CertificateFile ~/Mail/.certs/mail.example.com.pem
 
 Channel exampleAll
