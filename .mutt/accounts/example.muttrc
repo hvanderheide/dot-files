@@ -10,6 +10,6 @@ set postponed = "+.Drafts"
 set trash     = "+.Trash"
 
 unmailboxes *
-mailboxes + `find ~/Mail/example -maxdepth 5 -type d -name ".*" | awk '{last=split($0,a,"/"); printf "+" a[last] " "}'`
+mailboxes + `find ~/Mail/serverius -maxdepth 5 -type d -name ".*" | awk '{last=split($0,a,"/"); gsub(/ /, "\\ ", a[last]); printf "+" a[last] " "}'`
 
 set signature="~/.mutt/accounts/example.signature"
