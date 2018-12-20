@@ -71,5 +71,8 @@ nmap <Leader>t :TlistToggle<CR>
 au BufRead,BufNewFile *.{txt} set filetype=markdown
 let g:vim_markdown_folding_disabled = 1
 
+" Neomake when writing a file and when reading after 1 sec.
+call neomake#configure#automake('rw', 1000)
+
 " Load additional project-specific configuration
 silent! source .vimlocal
