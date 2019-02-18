@@ -1,37 +1,42 @@
 # Settings
 set delete = yes # Delete without ask
 set pager_index_lines = 20 # Message pane in pager
-set forward_format = "Fwd: %s"
-source ~/.mutt/vombatidae.mutt
+source ~/.mutt/colors.rc
 source ~/.mutt/vim-keys.rc
-#set header_cache = "~/.mutt/cache" # Caches headers in a DB which speeds up loading lots of mails
+set header_cache = "~/.mutt/cache" # Caches headers in a DB which speeds up loading lots of mails
 macro index,pager \cb "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
-#macro attach,compose \cb "<pipe-entry> urlscan<Enter>" "call urlscan to extract URLs out of a message"
 set wrap = 100 # Wrap mail in pager
 set timeout = 60 # Block at most 60 seconds before pausing to do maintencance
-set mime_forward = ask-no # Forward MIME messages as attachment
-mime_lookup application/octet-stream application/vnd.ms-excel
 unset wait_key
 macro index,pager S "<shell-escape>mbsync -q quick<enter>" "sync mail"
-alternative_order text/plain text/html # this helps with multipart messages
-#set mime_forward=yes
-#set mime_forward_rest=yes
 
+# Message viewing
 set implicit_autoview
 auto_view text/html  application/x-pgp-message
+alternative_order text/plain text/html # this helps with multipart messages
+mime_lookup application/octet-stream application/vnd.ms-excel
 ignore *
 unignore from date subject to cc
 unignore x-mailer
 unignore x-spam-status
 unignore x-spam-report
-#set edit_headers
+unignore user-agent
+set edit_headers
 
-source ~/.mutt/gpg.rc
-set crypt_autosign
-set crypt_replyencrypt
-set crypt_replysignencrypted
-set crypt_verify_sig
-set pgp_use_gpg_agent
+# Message composing
+set mime_forward = ask-yes
+set mime_forward_rest = yes
+set forward_format = "Fwd: %s"
+set abort_noattach = ask-yes
+set abort_noattach_regex = "\\<attach(|ed|ments?)|bijvoegen|bijgevoegd|bijlage|bijlagen\\>"
+
+# GPG
+set crypt_use_gpgme            # Use the GPGME library
+set crypt_autosign             # Sign all messages
+set crypt_verify_sig           # Verify all signatures
+set crypt_replysign            # Reply signed on signed messages
+set crypt_replyencrypt         # Reply encrypted on encrypted messages
+set crypt_replysignencrypted   # Reply signed and encrypted on signed and encrypted messages
 
 # Threaded mode
 set sort = threads
@@ -43,7 +48,7 @@ macro index,pager c "<change-folder>?" "open a different folder"
 macro index,pager s "<save-message>?<toggle-mailboxes>" "save to a folder"
 
 # notmuch
-set nm_default_uri = "notmuch:///Users/hidde/Mail"
+set nm_default_uri = "notmuch:///home/hidde/Mail"
 macro index \\\\ "<vfolder-from-query>"              # looks up a hand made query
 
 # Addressbook management
