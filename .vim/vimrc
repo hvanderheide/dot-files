@@ -71,6 +71,8 @@ nmap <Leader>t :TlistToggle<CR>
 au BufRead,BufNewFile *.{txt} set filetype=markdown
 let g:vim_markdown_folding_disabled = 1
 
+au FileType mail setl tw=68 spell spelllang=nl,en wrap expandtab tabstop=4
+
 " Neomake when writing a file and when reading after 1 sec.
 call neomake#configure#automake('rw', 1000)
 
