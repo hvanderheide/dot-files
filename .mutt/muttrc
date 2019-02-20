@@ -28,7 +28,7 @@ set mime_forward = ask-yes
 set mime_forward_rest = yes
 set forward_format = "Fwd: %s"
 set abort_noattach = ask-yes
-set abort_noattach_regex = "\\<attach(|ed|ments?)|bijvoegen|bijgevoegd|bijlage|bijlagen\\>"
+set attach_keyword="\\<(attach|attached|attachments|bijvoegen|bijgevoegd|bijlage|bijlagen?)\\>"
 
 # GPG
 set crypt_use_gpgme            # Use the GPGME library
