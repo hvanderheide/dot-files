@@ -22,6 +22,7 @@ unignore x-spam-status
 unignore x-spam-report
 unignore user-agent
 set edit_headers
+set text_flowed
 
 # Message composing
 set mime_forward = ask-yes
