@@ -57,6 +57,7 @@ autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
 nmap <Leader>g :Goyo<CR>
 
+set path=.,,**
 set cursorline
 set number
 set colorcolumn=80
